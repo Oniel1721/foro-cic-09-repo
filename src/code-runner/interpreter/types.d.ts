@@ -1,0 +1,1 @@
+export type Output = { id: string, value: TypesSupported, type: string }

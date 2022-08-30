@@ -1,0 +1,345 @@
+:root {
+    --token-identifier-color: yellow;
+    --token-string-color: orange;
+    --token-keyword-color: darkorchid;
+    --token-punctuation-color: brown;
+    --token-operator-color: cadetblue;
+    --token-number-color: cyan;  
+    --ast-number-color: var(--token-number-color);
+    --ast-string-color: var(--token-string-color);
+    --ast-boolean-color: rgb(255, 115, 0);
+    --ast-identifier-color: var(--token-identifier-color);
+    --ast-assign-color: rgb(32, 218, 153);
+    --ast-call-color: purple;
+    --ast-binary-color: chartreuse;
+    --ast-scope-color: rgb(187, 118, 118);
+    --ast-function-color: pink;
+    --ast-if-color: rgb(69, 105, 234);
+    --ast-while-color: rgb(67, 148, 26);
+    --output-display-color: rgb(51, 255, 0);
+    --error-display-color: crimson;
+}
+
+*,*::after,*::before {
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 100vh;
+}
+
+.run {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    border-radius: 50%;
+    padding: 16px;
+    border: none;
+    background-color: chartreuse;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+div {
+    background-color: inherit;
+}
+
+.viewer{
+    width: 50%;
+    height: 50%;
+    background-color: #2d2d2d;
+    position: relative;
+    font-size: 24px;
+    color: white;
+}
+
+.auto-scroll {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding-left: 16px;
+}
+
+.viewer h2{
+    font-size: 64px;
+    text-align: center;
+    color: white;
+}
+
+.viewer:nth-child(4){
+    background-color: #1e1e1e;
+}
+
+.token, .ast {
+    position: relative;
+    padding: 4px;
+    cursor: default;
+    user-select: none;
+}
+
+.token::after {
+    user-select: none;
+    content: attr(data-token-type);
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    z-index: 10;
+    transform: scale(0);
+    transition: transform ease-out 0.3s;
+    border: 1px solid white;
+    background-color: #1e1e1e;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.token-punctuation{
+    color: var(--token-punctuation-color);
+}
+
+.token-string{
+    color: var(--token-string-color);
+}
+
+.token-keyword{
+    color: var(--token-keyword-color);
+}
+
+.token-identifier{
+    color: var(--token-identifier-color);
+}
+
+.token-operator{
+    color: var(--token-operator-color);
+}
+
+.token-number{
+    color: var(--token-number-color);
+}
+
+.token:hover::after{
+    transform: scale(1);
+}
+
+.token:hover, .ast:hover{
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+
+.ast-number {
+    color: var(--ast-number-color);
+}
+
+.ast-string {
+    color: var(--ast-string-color);
+}
+
+.ast-boolean {
+    color: var(--ast-boolean-color);
+}
+
+.ast-identifier {
+    color: var(--ast-identifier-color);
+}
+
+.ast-call {
+    color: var(--ast-call-color);
+}
+
+.ast-binary {
+    color: var(--ast-binary-color);
+}
+
+.ast-scope {
+    color: var(--ast-scope-color);
+}
+
+.ast-function {
+    color: var(--ast-function-color);
+}
+
+.ast-if {
+    color: var(--ast-if-color);
+}
+
+.ast-while {
+    color: var(--ast-while-color);
+}
+
+.ast-assign {
+    color: var(--ast-assign-color);
+}
+
+
+.ast::after {
+    user-select: none;
+    content: attr(data-ast-type);
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    transform: scale(0);
+    transition: transform ease-out 0.3s;
+    border: 1px solid white;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: inherit;
+}
+
+.ast:hover {
+    background-color: white;
+    color: #1e1e1e;
+}
+
+.ast-program:hover {
+    background-color: gray;
+    color: white;
+}
+
+.ast-number:hover {
+    color: #1e1e1e;
+    background-color: var(--ast-number-color);
+}
+
+.ast-string:hover {
+    color: #1e1e1e;
+    background-color: var(--ast-string-color);
+}
+
+.ast-boolean:hover {
+    color: #1e1e1e;
+    background-color: var(--ast-boolean-color);
+}
+
+.ast-identifier:hover {
+    color: #1e1e1e;
+    background-color: var(--ast-identifier-color);
+}
+
+.ast-call:hover {
+    color: #1e1e1e;
+    background-color: var(--ast-call-color);
+}
+
+.ast-binary:hover {
+    color: #1e1e1e;
+    background-color: var(--ast-binary-color);
+}
+
+.ast-scope:hover {
+    color: #1e1e1e;
+    background-color: var(--ast-scope-color);
+}
+
+.ast-function:hover {
+    color: #1e1e1e;
+    background-color: var(--ast-function-color);
+}
+
+.ast-if:hover {
+    color: #1e1e1e;
+    background-color: var(--ast-if-color);
+}
+
+.ast-while:hover {
+    color: #1e1e1e;
+    background-color: var(--ast-while-color);
+}
+
+.ast-assign:hover {
+    color: #1e1e1e;
+    background-color: var(--ast-assign-color);
+}
+
+.ast {
+    margin-bottom: 32px;
+}
+
+.ast:hover::after{
+    transform: scale(1);
+}
+
+
+.output-display {
+    color: var(--output-display-color);
+    text-shadow: 
+                0 0 2px var(--output-display-color),
+                0 0 3px var(--output-display-color),
+                0 0 5px var(--output-display-color);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    margin-top: 8px;
+}
+
+.error-display {
+    user-select: none;
+    color: var(--error-display-color);
+    text-shadow: 
+                0 0 2px var(--error-display-color),
+                0 0 3px var(--error-display-color),
+                0 0 5px var(--error-display-color);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 8px;
+}
+
+.second-button, .load-dispatcher-button {
+    position: absolute;
+    bottom: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: rgb(196, 196, 196);
+    height: 48px;
+    width: 48px; 
+}
+
+.load-dispatcher-button {
+    right: 32px;
+}
+
+.second-button {
+    right: 100px;
+}
+
+.updating {
+    display: inline-block;
+    animation-name: updating;
+    animation-iteration-count: 1;
+    animation-duration: 0.5s;
+}
+
+.updated {
+    display: inline-block;
+    transform: scale(1.1);
+    filter: blur(10px);
+    animation-name: updated;
+    animation-iteration-count: 1;
+    animation-duration: 0.5s;
+}
+
+@keyframes updating {
+    100%{
+        transform: scale(1.1);
+        filter: blur(10px);
+    }
+}
+
+@keyframes updated {
+    100%{
+        transform: scale(1);
+        filter: blur(0px);
+
+    }
+}
+
+
+.progess-bar{
+    position: absolute;
+    bottom: 32px;
+    margin: auto;
+    width: 50vw;
+    height: 16px;
+    left: 25%;
+}

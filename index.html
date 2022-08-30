@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/globals.css">
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <main>
+      <section id="monaco-editor" class="viewer">
+
+      </section>
+      <section class="viewer">
+        <div id="token-viewer" class="auto-scroll"></div>
+      </section>
+      <section class="viewer">
+        <div id="ast-viewer" class="auto-scroll"></div>
+      </section>
+      <section class="viewer">
+        <div id="display" class="auto-scroll"></div>
+      </section>
+    </main>
+    <button class="run" id="run">Run</button>
+    <progress class="progess-bar" id="progress-bar" value="0%" max="100%"></progress>
+    <script defer type="module" src="/src/main.ts"></script>
+  </body>
+</html>
