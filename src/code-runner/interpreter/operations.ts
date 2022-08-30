@@ -1,4 +1,4 @@
-import { TypesSupported } from "./Context";
+import { TypesSupported } from "./context";
 import { BinaryOperators } from '../ast-parser/types';
 
 type Addable = string | number

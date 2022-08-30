@@ -1,5 +1,5 @@
 import { ProgramAST, AST, AssignAST, CallAST, BinaryAST, IfAST, FunctionAST, WhileAST } from '../ast-parser/types';
-import { Context, TypesSupported } from './Context';
+import { Context, TypesSupported } from './context';
 import { operations, truthy } from './operations';
 import { Token } from '../tokenizer/types';
 import { Output } from './types'
