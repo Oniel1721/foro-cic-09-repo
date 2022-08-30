@@ -18,7 +18,6 @@ const $editor:HTMLElement = document.querySelector('#monaco-editor')!
 const $display: HTMLDivElement = document.querySelector('#display')!
 const $runBtn: HTMLButtonElement = document.querySelector('.run')!
 let code: string = '';
-let lastCode: string = '';
 let tokens: Token[] = [];
 let ast: ProgramAST = { id: 'ast-1', program: [], type: 'program' };
 let output: Output[] = [];
@@ -37,7 +36,6 @@ const vsCode = monaco.editor.create($editor, {
 })
 
 const transformCode = ()=>{
-    lastCode = code
     code = vsCode.getValue()
     setCode(code)
     tokens = tokenize(code).tokenizeAll()
