@@ -37,7 +37,12 @@ class Interpreter {
         this.index = 0
         this.ast = ast
         this.global = new Context()
-        this.global.set("__author__", "Oniel")
+        this.global.set("__credits__", `
+            Agradecimientos a:
+            Cincinnatus Institute of Craftmanship por el espacio
+            & Anabel Hernández por ayudarme con la presentación 
+            (Quedo muy bonita).
+        `)
         this.global.set("print", (args: any[])=>{
             const parsedArgs = args.map(( arg )=>{
                 if(typeof arg === 'function' || typeof arg === 'object'){
