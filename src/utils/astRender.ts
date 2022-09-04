@@ -108,8 +108,7 @@ function renderTypeAndValueAST({ type, value }: TypeAndValueAST){
     $fragment.appendChild($args)
 
     $fragment.innerHTML += ' => '
-
-    const $bodyContent = renderScopeAST(scope)
+    const $bodyContent = scope.type === 'scope'?renderScopeAST(scope):renderEveryAst(scope)
     if($bodyContent){
       $body.appendChild($bodyContent)
     }
@@ -214,10 +213,6 @@ const setZIndex = ()=>{
   elements.forEach((element, i)=>{
     element.style.zIndex = `${i + 15}`
   })
-  // const programAST = document.querySelector('code.ast-program')
-  // if(!programAST) return;
-  // recursiveSetZIndex(programAST)
-  // const 
 }
 
 

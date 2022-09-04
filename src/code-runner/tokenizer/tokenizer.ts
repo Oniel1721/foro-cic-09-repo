@@ -118,12 +118,11 @@ class Tokenizer {
     }
 
     get isEnd(){
-        return this.lineIndex + 1 >= this.lines.length && this.column >= this.line.columns
+        return !this.line || this.lineIndex + 1 >= this.lines.length && this.column >= this.line.columns
     }
 
     skipComment(){
-        const initialIndex = this.lineIndex
-        this.readWhile(()=>initialIndex < this.lineIndex)
+        this.lineIndex++
     }
 
     readString(): Token{

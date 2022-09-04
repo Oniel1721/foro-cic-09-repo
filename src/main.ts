@@ -13,7 +13,6 @@ const getCode = ():string=>{
 const setCode = (value: string)=>{
     localStorage.setItem('visualizer_code', value)
 }
-
 const $editor:HTMLElement = document.querySelector('#monaco-editor')!
 const $display: HTMLDivElement = document.querySelector('#display')!
 const $runBtn: HTMLButtonElement = document.querySelector('.run')!
