@@ -137,4 +137,35 @@ Aquí veremos mi lenguaje junto a una herramienta didactica que creé para que v
 
 [Mi lenguaje de programación](https://foro-cic-09.vercel.app/)
 
+
+Ejemplo a utilizar
+
+`
+fibonacci = (n)=>{
+    i = 0
+    first = 0
+    second = 1
+    sum = 0
+    result = ''
+    while(i < n){
+        sum = first + second
+        first = second
+        second = sum
+        result = result + ' ' + sum
+        i = i + 1
+    }
+    print(result)
+    sum
+}
+
+last = fibonacci(4)
+residue = last % 2
+if(residue == 0){
+    print(last + ' es par')
+}
+else{
+    print(last + ' es impar')
+}
+`
+
 Muchisimás gracias por su atención.
