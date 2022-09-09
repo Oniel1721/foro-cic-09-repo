@@ -39,9 +39,11 @@ class Interpreter {
         this.global = new Context()
         this.global.set("__credits__", `
             Agradecimientos a:
-            Cincinnatus Institute of Craftmanship por el espacio
-            & Anabel Hernández por ayudarme con la presentación 
-            (Quedo muy bonita).
+            Cincinnatus por el espacio
+            Anabel Hernández por ayudarme con la presentación 
+            (Quedo muy bonita)
+            Jerson Cuevas, Leslie Rodriguez tambien ayudaron
+            Y a todos ustedes por su tiempo.
         `)
         this.global.set("print", (args: any[])=>{
             const parsedArgs = args.map(( arg )=>{
