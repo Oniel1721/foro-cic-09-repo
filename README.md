@@ -140,7 +140,7 @@ Aquí veremos mi lenguaje junto a una herramienta didactica que creé para que v
 
 Ejemplo a utilizar
 
-`
+```
 fibonacci = (n)=>{
     i = 0
     first = 0
@@ -166,6 +166,6 @@ if(residue == 0){
 else{
     print(last + ' es impar')
 }
-`
+```
 
 Muchisimás gracias por su atención.
